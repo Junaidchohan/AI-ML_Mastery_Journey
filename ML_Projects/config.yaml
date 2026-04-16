@@ -1,0 +1,11 @@
+credentials:
+  usernames:
+    admin:
+      email: admin@gmail.com
+      name: Admin User
+      password: admin123
+
+cookie:
+  expiry_days: 30
+  key: some_random_secret_key
+  name: ai_dashboard_cookie
