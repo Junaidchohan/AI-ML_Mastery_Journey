@@ -23,7 +23,7 @@ st.set_page_config(page_title="AI SaaS Dashboard", layout="wide")
 # ============================================================
 
 USERS = {
-    "admin": "admin123",
+    "Junaid": "admin123",
     "client": "client123"
 }
 
@@ -125,8 +125,8 @@ def train(df):
 
     X_train, X_test, y_train, y_test = train_test_split(X_clf, y_clf, test_size=0.2, random_state=42)
 
-    clf = LogisticRegression(max_iter=500)
-    clf.fit(X_train, y_train)
+    clf = LogisticRegression(max_iter=500) # create model
+    clf.fit(X_train, y_train) # train model
 
     acc = accuracy_score(y_test, clf.predict(X_test))
 
@@ -184,14 +184,14 @@ else:
             st.success("✅ Analysis Complete")
 
             col1, col2, col3 = st.columns(3)
-            col1.metric("Customers", len(df))
+            col1.metric("Total Customers", len(df))
             col2.metric("High Value %", f"{(df['segment']==2).mean()*100:.1f}%")
             col3.metric("Accuracy", f"{acc*100:.1f}%")
 
             fig = px.pie(df, names='segment_label', title="Customer Segments")
             st.plotly_chart(fig, use_container_width=True)
 
-            st.subheader("📊 Data Preview")
+            st.subheader("📊 processed Data Preview")
             st.dataframe(df)
 
             csv = df.to_csv(index=False).encode('utf-8')
@@ -207,4 +207,4 @@ else:
             st.text(str(e))
 
     else:
-        st.info("👆 Upload your CSV file to start analysis")
+        st.info("Upload your CSV file to start analysis")
