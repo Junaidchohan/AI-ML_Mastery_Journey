@@ -207,4 +207,4 @@ else:
             st.text(str(e))
 
     else:
-        st.info("⬆️ Upload your CSV file to start analysis")
+        st.info("⬆ Upload your CSV file to start analysis")
